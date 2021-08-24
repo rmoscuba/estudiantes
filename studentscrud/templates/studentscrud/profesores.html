@@ -2,31 +2,33 @@
 
 {% block content %}
 
-{% if lista_de_profes %}
+  <h1>Profes</h1>
 
-    <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Nombre</th>
-            <th colspan="2" scope="col"></th>
-          </tr>
-        </thead>
-        <p><a href="{% url 'studentscrud:profe-nuevo' %}">Nuevo</a></p>
-        <tbody>
-          {% for profe in lista_de_profes %}
-          <tr>
-            <th scope="row"><a href="{% url 'studentscrud:profe' profe.id %}">{{ profe.id }}</a></th>
-            <td>{{ profe.nombre }}</td>
-            <td><a href="{% url 'studentscrud:profe-editar' profe.id %}" title="Editar"><i class="bi bi-pencil"></i></a></td>
-            <td><a href="{% url 'studentscrud:profe-borrar' profe.id %}" title="Borrar"><i class="bi bi-trash"></i></a></td>\
-          </tr>
-          {% endfor %}
-        </tbody>
-      </table>
+  {% if lista_de_profes %}
 
-{% else %}
-    <p>No hay profees</p>
-{% endif %}
+      <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Nombre</th>
+              <th colspan="2" scope="col"></th>
+            </tr>
+          </thead>
+          <p><a href="{% url 'studentscrud:profe-nuevo' %}">Nuevo</a></p>
+          <tbody>
+            {% for profe in lista_de_profes %}
+            <tr>
+              <th scope="row"><a href="{% url 'studentscrud:profe' profe.id %}">{{ profe.id }}</a></th>
+              <td>{{ profe.nombre }}</td>
+              <td><a href="{% url 'studentscrud:profe-editar' profe.id %}" title="Editar"><i class="bi bi-pencil"></i></a></td>
+              <td><a href="{% url 'studentscrud:profe-borrar' profe.id %}" title="Borrar"><i class="bi bi-trash"></i></a></td>\
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+
+  {% else %}
+      <p>No hay profees</p>
+  {% endif %}
 
 {% endblock content %}

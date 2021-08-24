@@ -2,15 +2,21 @@
 
 {% block content %}
 
-<div class="card">
-    <h1>{{ grupo.nombre }}</h1>
-    <h2 class="list-group-item">Profesor guía: {{ grupo.profesor_guia }}</h2>
-    <ul class="list-group list-group-flush">
-      {% for estudiante in grupo.estudiante_set.all %}
-      <li class="list-group-item">{{ estudiante.nombre }}</li>
-      {% endfor %}
-    </ul>
+<h1>Grupo</h1>
+
+<div class="container w-lg-50">
+
+  <div class="card">
+      <h1>{{ grupo.nombre }}</h1>
+      <h2 class="list-group-item">Profesor guía: {{ grupo.profesor_guia }}</h2>
+      <ul class="list-group list-group-flush">
+        {% for estudiante in grupo.estudiante_set.all %}
+        <li class="list-group-item">{{ estudiante.nombre }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+
   </div>
 
-  {% endblock content %}
+{% endblock content %}
   

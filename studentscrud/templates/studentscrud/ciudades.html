@@ -2,6 +2,8 @@
 
 {% block content %}
 
+<h1>Ciudades</h1>
+
 {% if lista_de_ciudades %}
 
     <table class="table">
@@ -16,7 +18,7 @@
         <tbody>
           {% for ciudad in lista_de_ciudades %}
           <tr>
-            <th scope="row"><a href="{% url 'studentscrud:ciudad' ciudad.id %}">{{ estudiante.id }}</a></th>
+            <th scope="row"><a href="{% url 'studentscrud:ciudad' ciudad.id %}">{{ ciudad.id }}</a></th>
             <td>{{ ciudad.nombre }}</td>
             <td><a href="{% url 'studentscrud:ciudad-editar' ciudad.id %}" title="Editar"><i class="bi bi-pencil"></i></a></td>
             <td><a href="{% url 'studentscrud:ciudad-borrar' ciudad.id %}" title="Borrar"><i class="bi bi-trash"></i></a></td>
