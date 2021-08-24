@@ -21,7 +21,7 @@
               <th scope="row"><a href="{% url 'studentscrud:profe' profe.id %}">{{ profe.id }}</a></th>
               <td>{{ profe.nombre }}</td>
               <td><a href="{% url 'studentscrud:profe-editar' profe.id %}" title="Editar"><i class="bi bi-pencil"></i></a></td>
-              <td><a href="{% url 'studentscrud:profe-borrar' profe.id %}" title="Borrar"><i class="bi bi-trash"></i></a></td>\
+              <td><a href="{% url 'studentscrud:profe-borrar' profe.id %}" title="Borrar"><i class="bi bi-trash"></i></a></td>
             </tr>
             {% endfor %}
           </tbody>
