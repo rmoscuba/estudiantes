@@ -5,9 +5,6 @@ from dateutil.relativedelta import relativedelta
 
 from django.core.validators import EmailValidator
 
-import pytz
-utc=pytz.UTC
-
 # Ciudades
 class Ciudad(models.Model):
 
