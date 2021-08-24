@@ -8,11 +8,29 @@ from django.core.validators import EmailValidator, BaseValidator
 from django.core.exceptions import ValidationError
 from django.utils.deconstruct import deconstructible
 
+import pytz
+
+# Prueba si date es naive
+def is_naive(dt):
+    return not(dt.tzinfo is not None and dt.tzinfo.utcoffset(dt) is not None)
+
+# Convierte de naive a local
+def to_loc(dt, tz = 'UTC'):
+    if is_naive(dt):
+        tz = pytz.timezone(tz)
+        return tz.localize(dt)
+    else:
+        return dt
+
 @deconstructible
 class PastDateValidator():
-    
-    def __call__(self, value):
-        if datetime.now() < value:
+
+
+    def __call__(self, date):
+        tz = 'Chile/Continental'
+        now_loc =  to_loc(datetime.now(), tz)
+        date_loc = to_loc(date, tz)
+        if  now_loc < date_loc:
             raise ValidationError("Indique una fecha en el pasado.")
 
 # Ciudades
