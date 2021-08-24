@@ -16,4 +16,10 @@ urlpatterns = [
     path('ciudad/nuevo/', views.CiudadCreateView.as_view(), name='ciudad-nuevo'),
     path('ciudad/<int:pk>/editar', views.CiudadUpdateView.as_view(), name='ciudad-editar'),
     path('ciudad/<int:pk>/borrar/', views.CiudadDeleteView.as_view(), name='ciudad-borrar'),
+    # Grupos
+    path('grupos', views.GruposView.as_view(), name='grupos'),
+    path('grupo/<int:pk>/', views.GrupoView.as_view(), name='grupo'),
+    path('grupo/nuevo/', views.GrupoCreateView.as_view(), name='grupo-nuevo'),
+    path('grupo/<int:pk>/editar', views.GrupoUpdateView.as_view(), name='grupo-editar'),
+    path('grupo/<int:pk>/borrar/', views.GrupoDeleteView.as_view(), name='grupo-borrar'),
 ]

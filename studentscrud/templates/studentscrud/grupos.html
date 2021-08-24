@@ -1,0 +1,27 @@
+{% if lista_de_grupos %}
+
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+          </tr>
+        </thead>
+        <p><a href="{% url 'studentscrud:grupo-nuevo' %}">Nuevo</a></p>
+        <tbody>
+          {% for grupo in lista_de_grupos %}
+          <tr>
+            <th scope="row"><a href="{% url 'studentscrud:grupo' grupo.id %}">{{ grupo.id }}</a></th>
+            <td>{{ grupo.nombre }}</td>
+            <td>{{ grupo.email }}</td>
+            <td>{{ grupo.grupo }}</td>
+            <td><a href="{% url 'studentscrud:grupo-editar' grupo.id %}">Editar</a></td>
+            <td><a href="{% url 'studentscrud:grupo-borrar' grupo.id %}">Borrar</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+{% else %}
+    <p>No hay grupoes</p>
+{% endif %}
