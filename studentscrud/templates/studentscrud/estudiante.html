@@ -1,0 +1,11 @@
+<div class="card">
+    <h1>{{ estudiante.nombre }}</h1>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Fecha de nacimiento {{ estudiante.fecha_nacimiento|date:"d/m/Y" }}</li>
+      <li class="list-group-item">Edad {{ estudiante.edad }}</li>
+      <li class="list-group-item">Sexo {{ estudiante.sexo }}</li>
+      <li class="list-group-item">Email {{ estudiante.email }}</li>
+      <li class="list-group-item">Grupo {{ estudiante.grupo }}</li>
+      <li class="list-group-item">Profesor guía {{ estudiante.grupo.profesor_guia }}</li>
+    </ul>
+  </div>

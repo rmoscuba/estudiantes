@@ -1,0 +1,26 @@
+{% if lista_de_estudiantes %}
+
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Email</th>
+            <th scope="col">Grupo</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for estudiante in lista_de_estudiantes %}
+          <tr>
+            <th scope="row"><a href="{% url 'studentscrud:estudiante' estudiante.id %}">{{ estudiante.id }}</a></th>
+            <td>{{ estudiante.nombre }}</td>
+            <td>{{ estudiante.email }}</td>
+            <td>{{ estudiante.grupo }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+{% else %}
+    <p>No hay estudiantes</p>
+{% endif %}
