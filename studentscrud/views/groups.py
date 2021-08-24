@@ -11,7 +11,7 @@ from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.urls import reverse_lazy
 
 class GruposView(generic.ListView):
-    template_name = 'studentscrud/Grupos.html'
+    template_name = 'studentscrud/grupos.html'
     context_object_name = 'lista_de_grupos'
 
     def get_queryset(self):
@@ -20,7 +20,7 @@ class GruposView(generic.ListView):
 
 class GrupoView(generic.DetailView):
     model = Grupo
-    template_name = 'studentscrud/Grupo.html'
+    template_name = 'studentscrud/grupo.html'
 
 class GrupoCreateView(CreateView):
     model = Grupo
