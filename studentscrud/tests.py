@@ -62,4 +62,19 @@ class EstudianteModelTests(TestCase):
         except Exception as e:
             self.assertEqual(e.__str__(), "{'email': ['Enter a valid email address.']}")
 
-    
+    def test_prueba_que_no_se_guarde_estudiante_con_fecha_nacimiento_en_el_futuro(self):
+        
+        date_in_future = datetime.datetime(datetime.datetime.now().year+1, 12, 6)
+
+        nuevo_estudiante = Estudiante(
+            nombre="Alfredito", 
+            sexo="M", 
+            email='email@bienformado.com', 
+            ciudad_nacimiento = self.ciudad,
+            fecha_nacimiento = date_in_future,
+            grupo = self.grupo)
+        try:
+            nuevo_estudiante.full_clean()
+            self.fail()
+        except Exception as e:
+            self.assertEqual(e.__str__(), "{'fecha_nacimiento': ['Indique una fecha en el pasado.']}")
