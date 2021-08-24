@@ -1,3 +1,7 @@
+{% extends "base.html" %}
+
+{% block content %}
+
 {% if lista_de_estudiantes %}
 
     <table class="table">
@@ -20,8 +24,8 @@
             <td>
               <a href="{% url 'studentscrud:grupo' estudiante.grupo.id %}">{{ estudiante.grupo }}</a>
             </td>
-            <td><a href="{% url 'studentscrud:estudiante-editar' estudiante.id %}">Editar</a></td>
-            <td><a href="{% url 'studentscrud:estudiante-borrar' estudiante.id %}">Borrar</a></td>
+            <td><a href="{% url 'studentscrud:estudiante-editar' estudiante.id %}" title="Editar"><i class="bi bi-pencil"></i></a></td>
+            <td><a href="{% url 'studentscrud:estudiante-borrar' estudiante.id %}" title="Borrar"><i class="bi bi-trash"></i></a></td>
           </tr>
           {% endfor %}
         </tbody>
@@ -30,3 +34,5 @@
 {% else %}
     <p>No hay estudiantes</p>
 {% endif %}
+
+{% endblock content %}

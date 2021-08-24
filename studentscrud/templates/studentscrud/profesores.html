@@ -1,3 +1,7 @@
+{% extends "base.html" %}
+
+{% block content %}
+
 {% if lista_de_profes %}
 
     <table class="table">
@@ -5,6 +9,7 @@
           <tr>
             <th scope="col">#</th>
             <th scope="col">Nombre</th>
+            <th colspan="2" scope="col"></th>
           </tr>
         </thead>
         <p><a href="{% url 'studentscrud:profe-nuevo' %}">Nuevo</a></p>
@@ -13,8 +18,8 @@
           <tr>
             <th scope="row"><a href="{% url 'studentscrud:profe' profe.id %}">{{ profe.id }}</a></th>
             <td>{{ profe.nombre }}</td>
-            <td><a href="{% url 'studentscrud:profe-editar' profe.id %}">Editar</a></td>
-            <td><a href="{% url 'studentscrud:profe-borrar' profe.id %}">Borrar</a></td>
+            <td><a href="{% url 'studentscrud:profe-editar' profe.id %}" title="Editar"><i class="bi bi-pencil"></i></a></td>
+            <td><a href="{% url 'studentscrud:profe-borrar' profe.id %}" title="Borrar"><i class="bi bi-trash"></i></a></td>\
           </tr>
           {% endfor %}
         </tbody>
@@ -23,3 +28,5 @@
 {% else %}
     <p>No hay profees</p>
 {% endif %}
+
+{% endblock content %}

@@ -1,3 +1,7 @@
+{% extends "base.html" %}
+
+{% block content %}
+
 <div class="card">
     <h1>{{ grupo.nombre }}</h1>
     <h2 class="list-group-item">Profesor guía: {{ grupo.profesor_guia }}</h2>
@@ -7,3 +11,6 @@
       {% endfor %}
     </ul>
   </div>
+
+  {% endblock content %}
+  

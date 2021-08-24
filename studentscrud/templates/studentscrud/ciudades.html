@@ -1,3 +1,7 @@
+{% extends "base.html" %}
+
+{% block content %}
+
 {% if lista_de_ciudades %}
 
     <table class="table">
@@ -5,6 +9,7 @@
           <tr>
             <th scope="col">#</th>
             <th scope="col">Nombre</th>
+            <th colspan="2" scope="col"></th>
           </tr>
         </thead>
         <p><a href="{% url 'studentscrud:ciudad-nuevo' %}">Nuevo</a></p>
@@ -13,10 +18,9 @@
           <tr>
             <th scope="row"><a href="{% url 'studentscrud:ciudad' ciudad.id %}">{{ estudiante.id }}</a></th>
             <td>{{ ciudad.nombre }}</td>
-            <td>{{ ciudad.email }}</td>
-            <td>{{ ciudad.grupo }}</td>
-            <td><a href="{% url 'studentscrud:ciudad-editar' ciudad.id %}">Editar</a></td>
-            <td><a href="{% url 'studentscrud:ciudad-borrar' ciudad.id %}">Borrar</a></td>
+            <td><a href="{% url 'studentscrud:ciudad-editar' ciudad.id %}" title="Editar"><i class="bi bi-pencil"></i></a></td>
+            <td><a href="{% url 'studentscrud:ciudad-borrar' ciudad.id %}" title="Borrar"><i class="bi bi-trash"></i></a></td>
+            
           </tr>
           {% endfor %}
         </tbody>
@@ -25,3 +29,5 @@
 {% else %}
     <p>No hay ciudades</p>
 {% endif %}
+
+{% endblock content %}

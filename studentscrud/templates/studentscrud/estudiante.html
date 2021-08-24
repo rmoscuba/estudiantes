@@ -1,3 +1,7 @@
+{% extends "base.html" %}
+
+{% block content %}
+
 <div class="card">
     <h1>{{ estudiante.nombre }}</h1>
     <ul class="list-group list-group-flush">
@@ -9,3 +13,6 @@
       <li class="list-group-item">Profesor guía {{ estudiante.grupo.profesor_guia }}</li>
     </ul>
   </div>
+
+  {% endblock content %}
+  
