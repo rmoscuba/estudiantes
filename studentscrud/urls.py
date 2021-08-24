@@ -22,4 +22,10 @@ urlpatterns = [
     path('grupo/nuevo/', views.GrupoCreateView.as_view(), name='grupo-nuevo'),
     path('grupo/<int:pk>/editar', views.GrupoUpdateView.as_view(), name='grupo-editar'),
     path('grupo/<int:pk>/borrar/', views.GrupoDeleteView.as_view(), name='grupo-borrar'),
+    # Profes
+    path('profes', views.ProfesView.as_view(), name='profes'),
+    path('profe/<int:pk>/', views.ProfeView.as_view(), name='profe'),
+    path('profe/nuevo/', views.ProfeCreateView.as_view(), name='profe-nuevo'),
+    path('profe/<int:pk>/editar', views.ProfeUpdateView.as_view(), name='profe-editar'),
+    path('profe/<int:pk>/borrar/', views.ProfeDeleteView.as_view(), name='profe-borrar'),
 ]

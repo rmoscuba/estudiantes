@@ -1,0 +1,25 @@
+{% if lista_de_profes %}
+
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+          </tr>
+        </thead>
+        <p><a href="{% url 'studentscrud:profe-nuevo' %}">Nuevo</a></p>
+        <tbody>
+          {% for profe in lista_de_profes %}
+          <tr>
+            <th scope="row"><a href="{% url 'studentscrud:profe' profe.id %}">{{ profe.id }}</a></th>
+            <td>{{ profe.nombre }}</td>
+            <td><a href="{% url 'studentscrud:profe-editar' profe.id %}">Editar</a></td>
+            <td><a href="{% url 'studentscrud:profe-borrar' profe.id %}">Borrar</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+{% else %}
+    <p>No hay profees</p>
+{% endif %}
