@@ -1,15 +1,21 @@
 
 # Como publicar en Heroku
 
-* Has si no la tienes, has una cuenta en Heroku
+* Has una cuenta en Heroku, si no la tienes
 
-* Haces un Fork the este repo en to github
+* Haces un Fork de este repo en tu github
 
-* Cra una nuava app en Heroku
+* Creas una nuava app en Heroku
 
-* En el tab de deployment selecciona GitHub
+* En el tab de Deploy selecciona GitHub
 
-* Indica el repo github
+* Dale a buscar repos
+  
+* Conecta el repo donde está esta app
+  
+* Habilita Automatic Deploys
+  
+* Dale click a Deploy Branch para publicarlo la primera vez
 
 # Solución
 
