@@ -3,7 +3,7 @@ from django.views import generic
 
 from django.views import generic
 
-from .models import Estudiante
+from studentscrud.models import Estudiante
 
 from django.views.generic.edit import FormView
 
