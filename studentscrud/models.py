@@ -3,6 +3,8 @@ from django.db import models
 from django.utils import timezone
 from dateutil.relativedelta import relativedelta
 
+from django.core.validators import EmailValidator
+
 import pytz
 utc=pytz.UTC
 
@@ -44,7 +46,7 @@ class Estudiante(models.Model):
         return edad.years
 
     nombre = models.CharField(max_length=200)
-    email = models.CharField(max_length=200)
+    email = models.CharField(max_length=200, validators=[EmailValidator()])
     ciudad_nacimiento = models.ForeignKey(Ciudad, verbose_name='Ciudad de nacimiento',  on_delete=models.RESTRICT)
     sexo = models.CharField(max_length=50)
     fecha_nacimiento = models.DateTimeField('Fecha de nacimiento')

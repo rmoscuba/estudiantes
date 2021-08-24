@@ -60,6 +60,6 @@ class EstudianteModelTests(TestCase):
             nuevo_estudiante.full_clean()
             self.fail()
         except Exception as e:
-            self.assertEqual(e.__str__(), "{'email': ['Enter a valid email address']}")
+            self.assertEqual(e.__str__(), "{'email': ['Enter a valid email address.']}")
 
     
