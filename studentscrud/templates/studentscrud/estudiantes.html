@@ -7,8 +7,10 @@
             <th scope="col">Nombre</th>
             <th scope="col">Email</th>
             <th scope="col">Grupo</th>
+            <th colspan="2" scope="col"></th>
           </tr>
         </thead>
+        <p><a href="{% url 'studentscrud:estudiante-nuevo' %}">Nuevo</a></p>
         <tbody>
           {% for estudiante in lista_de_estudiantes %}
           <tr>
@@ -16,6 +18,8 @@
             <td>{{ estudiante.nombre }}</td>
             <td>{{ estudiante.email }}</td>
             <td>{{ estudiante.grupo }}</td>
+            <td><a href="{% url 'studentscrud:estudiante-editar' estudiante.id %}">Editar</a></td>
+            <td><a href="{% url 'studentscrud:estudiante-borrar' estudiante.id %}">Borrar</a></td>
           </tr>
           {% endfor %}
         </tbody>
