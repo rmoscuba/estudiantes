@@ -1,0 +1,27 @@
+{% if lista_de_ciudades %}
+
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+          </tr>
+        </thead>
+        <p><a href="{% url 'studentscrud:ciudad-nuevo' %}">Nuevo</a></p>
+        <tbody>
+          {% for ciudad in lista_de_ciudades %}
+          <tr>
+            <th scope="row"><a href="{% url 'studentscrud:ciudad' ciudad.id %}">{{ estudiante.id }}</a></th>
+            <td>{{ ciudad.nombre }}</td>
+            <td>{{ ciudad.email }}</td>
+            <td>{{ ciudad.grupo }}</td>
+            <td><a href="{% url 'studentscrud:ciudad-editar' ciudad.id %}">Editar</a></td>
+            <td><a href="{% url 'studentscrud:ciudad-borrar' ciudad.id %}">Borrar</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+{% else %}
+    <p>No hay ciudades</p>
+{% endif %}
