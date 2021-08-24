@@ -1,9 +1,19 @@
 from django.db import models
 
 from django.utils import timezone
+from datetime import datetime
 from dateutil.relativedelta import relativedelta
 
-from django.core.validators import EmailValidator
+from django.core.validators import EmailValidator, BaseValidator
+from django.core.exceptions import ValidationError
+from django.utils.deconstruct import deconstructible
+
+@deconstructible
+class PastDateValidator():
+    
+    def __call__(self, value):
+        if datetime.now() < value:
+            raise ValidationError("Indique una fecha en el pasado.")
 
 # Ciudades
 class Ciudad(models.Model):
@@ -46,5 +56,5 @@ class Estudiante(models.Model):
     email = models.CharField(max_length=200, validators=[EmailValidator()])
     ciudad_nacimiento = models.ForeignKey(Ciudad, verbose_name='Ciudad de nacimiento',  on_delete=models.RESTRICT)
     sexo = models.CharField(max_length=50)
-    fecha_nacimiento = models.DateTimeField('Fecha de nacimiento')
+    fecha_nacimiento = models.DateTimeField('Fecha de nacimiento', validators=[PastDateValidator()])
     grupo = models.ForeignKey(Grupo, on_delete=models.RESTRICT)
