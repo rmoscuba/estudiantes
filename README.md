@@ -1,6 +1,29 @@
 
+# Como publicar en Heroku
 
-Problema Original
+* Has si no la tienes, has una cuenta en Heroku
+
+* Haces un Fork the este repo en to github
+
+* Cra una nuava app en Heroku
+
+* En el tab de deployment selecciona GitHub
+
+* Indica el repo github
+
+# Solución
+
+Se crearon los modelos y Ciudad, Estudiante, Profesor y Grupo
+
+Se crearon las vistas CRUD para cada modelo.
+
+Se crearon validaciones básicas para los campos emailm que sea válido y fecha de naciemiento que sea en el pasado.
+
+Se crearon algunas pruebas unitarias para las validaciones.
+
+Se le dió estilo con Bootstrap CDN.
+
+# Problema Original
 
 Firedevs SpA
 
