@@ -1,7 +1,10 @@
 from django.db import models
 
-from datetime import datetime
+from django.utils import timezone
 from dateutil.relativedelta import relativedelta
+
+import pytz
+utc=pytz.UTC
 
 # Ciudades
 class Ciudad(models.Model):
@@ -37,7 +40,7 @@ class Estudiante(models.Model):
         return self.nombre
 
     def edad(self):
-        edad = relativedelta(datetime.now(), self.fecha_nacimiento)
+        edad = relativedelta(timezone.now(), self.fecha_nacimiento)
         return edad.years
 
     nombre = models.CharField(max_length=200)
