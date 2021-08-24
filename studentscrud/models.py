@@ -9,13 +9,14 @@ from django.core.exceptions import ValidationError
 from django.utils.deconstruct import deconstructible
 
 import studentscrud.utils as utils
+from django.conf import settings
 
 @deconstructible
 class PastDateValidator():
 
 
     def __call__(self, date):
-        tz = 'Chile/Continental'
+        tz = settings.TIME_ZONE
         now_loc =  utils.to_loc(datetime.now(), tz)
         date_loc = utils.to_loc(date, tz)
         if  now_loc < date_loc:
